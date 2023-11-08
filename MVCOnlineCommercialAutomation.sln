@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCOnlineCommercialAutomation", "MVCOnlineCommercialAutomation\MVCOnlineCommercialAutomation.csproj", "{8CF1EDF6-C06C-411F-A97E-A7D72057B71E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCOnlineCommercialAutomation.Tests", "MVCOnlineCommercialAutomation.Tests\MVCOnlineCommercialAutomation.Tests.csproj", "{2E2F18A8-2E92-471B-A7FD-665DC48FDBE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CF1EDF6-C06C-411F-A97E-A7D72057B71E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CF1EDF6-C06C-411F-A97E-A7D72057B71E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CF1EDF6-C06C-411F-A97E-A7D72057B71E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CF1EDF6-C06C-411F-A97E-A7D72057B71E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E2F18A8-2E92-471B-A7FD-665DC48FDBE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E2F18A8-2E92-471B-A7FD-665DC48FDBE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E2F18A8-2E92-471B-A7FD-665DC48FDBE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E2F18A8-2E92-471B-A7FD-665DC48FDBE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9F82145-1162-44CD-AD74-2D6DAC58C16D}
+	EndGlobalSection
+EndGlobal
