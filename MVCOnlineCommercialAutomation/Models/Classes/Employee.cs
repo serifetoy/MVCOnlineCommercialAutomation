@@ -20,8 +20,7 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         [Column(TypeName = "VarChar")]
         [StringLength(250)]
         public string EmployeeImage { get; set; }
-        public SaleTransaction SaleTransaction { get; set; }
-
+        public ICollection<SaleTransaction> SaleTransactions { get; set; }
         public Department Department { get; set; } 
     }
 }

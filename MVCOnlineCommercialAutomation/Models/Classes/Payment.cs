@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MVCOnlineCommercialAutomation.Models.Classes
 {
-    public class Payments//giderler
+    public class Payment//giderler
     {
         [Key]
         public int PaymentId { get; set; }

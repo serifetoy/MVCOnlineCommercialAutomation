@@ -8,7 +8,7 @@ using System.Web.UI;
 
 namespace MVCOnlineCommercialAutomation.Models.Classes
 {
-    public class Invoices
+    public class Invoice
     {
         [Key]
         public int InvoiceId { get; set; }

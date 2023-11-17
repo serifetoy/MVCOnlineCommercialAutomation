@@ -17,8 +17,8 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         public int Quantity { get; set; }//miktar
         public decimal Price { get; set; }//fiyat
         public decimal TotalAmount { get; set; }//toplam tutar
-        public ICollection<Product> Products { get; set; }
-        public ICollection<Customer> Customers { get; set; }
-        public ICollection<Employee> Employees { get; set; }
+        public Product Product { get; set; }
+        public Customer Customer { get; set; }
+        public Employee Employee { get; set; }
     }
 }

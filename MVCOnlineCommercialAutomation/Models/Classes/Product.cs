@@ -25,6 +25,6 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         [StringLength(250)]
         public string ProductImage { get; set; }
         public Category Category { get; set; }//her ürünün sadece 1 kategorisi vardır
-        public SaleTransaction SaleTransaction { get; set; }
+        public ICollection<SaleTransaction> SaleTransactions { get; set; }
     }
 }

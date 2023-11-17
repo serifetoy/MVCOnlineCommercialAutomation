@@ -17,6 +17,6 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         public int Quantity{ get; set; }//miktar
         public decimal UnitPrice{ get; set; }
         public decimal Price{ get; set; }//fiyat
-        public Invoices Invoices { get; set; }
+        public Invoice Invoices { get; set; }
     }
 }

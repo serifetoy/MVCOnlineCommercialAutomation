@@ -23,7 +23,7 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         [Column(TypeName = "VarChar")]
         [StringLength(50)]
         public string CustomerEmail { get; set; }
-        public SaleTransaction SaleTransaction { get; set; }
+        public ICollection<SaleTransaction> SaleTransactions { get; set; }
 
     }
 }
