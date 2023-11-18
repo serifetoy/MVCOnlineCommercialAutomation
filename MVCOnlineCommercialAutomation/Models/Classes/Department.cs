@@ -14,6 +14,7 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         [Column(TypeName = "VarChar")]
         [StringLength(30)]
         public string DepartmentName { get; set; }
+        public bool Status { get; set; } = true;
         public ICollection<Employee> Employees { get; set;}
     }
 }

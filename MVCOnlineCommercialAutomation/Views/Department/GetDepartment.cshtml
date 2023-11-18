@@ -1,0 +1,20 @@
+﻿@model MVCOnlineCommercialAutomation.Models.Classes.Department
+@{
+    ViewBag.Title = "GetDepartment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update Department</h2>
+<br />
+
+@using (Html.BeginForm("UpdateDepartment", "Department", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.DepartmentName)
+        @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.DepartmentId)
+        <br />
+        <button class="btn btn-warning">Save</button>
+    </div>
+}
