@@ -12,10 +12,11 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         [Key]
         public int CustomerId { get; set; }
         [Column(TypeName = "VarChar")]
-        [StringLength(30)]
+        [StringLength(30, ErrorMessage = "Cannot exceed 30 characters")]
         public string CustomerName { get; set; }
         [Column(TypeName = "VarChar")]
         [StringLength(30)]
+        [Required(ErrorMessage = "Required field cannot be left blank")]
         public string CustomerSurname { get; set; }
         [Column(TypeName = "VarChar")]
         [StringLength(15)]
@@ -23,6 +24,8 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         [Column(TypeName = "VarChar")]
         [StringLength(50)]
         public string CustomerEmail { get; set; }
+
+        public bool Status { get; set; }
         public ICollection<SaleTransaction> SaleTransactions { get; set; }
 
     }

@@ -1,0 +1,36 @@
+﻿@using MVCOnlineCommercialAutomation.Models.Classes
+@model List<Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top: 20px">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>City</th>
+        <th>E-Mail</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var c in Model)
+    {
+
+        <tr>
+            <td>@c.CustomerId </td>
+            <td>@c.CustomerName </td>
+            <td>@c.CustomerSurname </td>
+            <td>@c.CustomerCity </td>
+            <td>@c.CustomerEmail </td>
+            <td><a href="/Customer/DeleteCustomer/@c.CustomerId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Customer/GetCustomer/@c.CustomerId" class="btn btn-info">Update</a></td>
+            <td><a href="/Customer/CustomerSale/@c.CustomerId" class="btn btn-default" style="background-color:thistle">Sales History</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Customer/AddCustomer" class="btn btn-primary"> Add Customer</a>
+

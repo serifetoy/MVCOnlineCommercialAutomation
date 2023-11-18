@@ -1,0 +1,31 @@
+﻿@model MVCOnlineCommercialAutomation.Models.Classes.Customer
+@{
+    ViewBag.Title = "GetCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update Customer</h2>
+<br />
+
+@using (Html.BeginForm("UpdateCustomer", "Customer", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.CustomerName)
+        @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.CustomerId)
+        @Html.ValidationMessageFor(x => x.CustomerName, "", new { @style = "color:red" })
+        <br />
+        @Html.LabelFor(x => x.CustomerSurname)
+        @Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CustomerSurname, "", new { @style = "color:orange" })
+        <br />
+        @Html.LabelFor(x => x.CustomerCity)
+        @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.CustomerEmail)
+        @Html.TextBoxFor(x => x.CustomerEmail, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-warning">Save</button>
+    </div>
+}
