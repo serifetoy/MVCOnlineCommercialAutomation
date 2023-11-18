@@ -1,0 +1,42 @@
+﻿@model MVCOnlineCommercialAutomation.Models.Classes.Product
+@{
+    ViewBag.Title = "GetProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update Product</h2>
+<br />
+
+@using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ProductId)
+        @Html.LabelFor(x => x.ProductName)
+        @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Brand)
+        @Html.TextBoxFor(x => x.Brand, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Stock)
+        @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.PurchasePrice)
+        @Html.TextBoxFor(x => x.PurchasePrice, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.SellingePrice)
+        @Html.TextBoxFor(x => x.SellingePrice, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Status)
+        @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Category.CategoryId)
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.val1, new { @class = "form-control" })
+        @*@Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })*@
+        <br />
+        @Html.LabelFor(x => x.ProductImage)
+        @Html.TextBoxFor(x => x.ProductImage, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Save</button>
+    </div>
+}

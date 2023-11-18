@@ -24,7 +24,8 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         [Column(TypeName = "VarChar")]
         [StringLength(250)]
         public string ProductImage { get; set; }
-        public Category Category { get; set; }//her ürünün sadece 1 kategorisi vardır
+        public virtual Category Category { get; set; }//her ürünün sadece 1 kategorisi vardır
+        public int CategoryId { get; set; }
         public ICollection<SaleTransaction> SaleTransactions { get; set; }
     }
 }
