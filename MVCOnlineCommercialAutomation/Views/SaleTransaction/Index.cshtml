@@ -1,0 +1,56 @@
+﻿@using MVCOnlineCommercialAutomation.Models.Classes
+@model List<SaleTransaction>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table id="tbl1" class="table table-bordered" style="margin-top: 20px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Customer</th>
+            <th>Employee</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Amount</th>
+            <th>Date</th>
+            <th>Update</th>
+            <th>Details</th>
+
+        </tr>
+    </thead>
+        @foreach (var x in Model)
+        {
+
+            <tr>
+                <td>@x.SaleTransactionId</td>
+                <td>@x.Product.ProductName</td>
+                <td>@x.Customer.CustomerName @x.Customer.CustomerSurname</td>
+                <td>@x.Employee.EmployeeName @x.Employee.EmployeeSurname</td>
+                <td>@x.Quantity</td>
+                <td>@x.Price</td>
+                <td>@x.TotalAmount</td>
+                <td>@x.SaleTransactionDate</td>
+                <td><a href="/SaleTransaction/GetSaleTransaction/@x.SaleTransactionId" class="btn btn-info">Update</a></td>
+                <td><a href="/SaleTransaction/DetailSaleTransaction/@x.SaleTransactionId" class="btn btn-default" style="background-color:thistle">Sales</a></td>
+
+            </tr>
+        }
+</table>
+
+<a href="/SaleTransaction/AddTransaction"  class="btn btn-primary"> New Sale</a>
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

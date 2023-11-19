@@ -1,0 +1,29 @@
+﻿@model MVCOnlineCommercialAutomation.Models.Classes.Employee
+@{
+    ViewBag.Title = "GetEmployee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Get Employee </h2>
+<br />
+
+@using (Html.BeginForm("UpdateEmployee", "Employee", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.EmployeeId)
+        @Html.LabelFor(x => x.EmployeeName)
+        @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.EmployeeSurname)
+        @Html.TextBoxFor(x => x.EmployeeSurname, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.EmployeeImage)
+        @Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Department)
+        @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.val1, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Save</button>
+    </div>
+}

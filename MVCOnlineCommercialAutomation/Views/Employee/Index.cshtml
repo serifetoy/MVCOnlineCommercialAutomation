@@ -1,0 +1,34 @@
+﻿@using MVCOnlineCommercialAutomation.Models.Classes
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top: 20px">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Image</th>
+        <th>Department</th>
+        <th>Update</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var c in Model)
+    {
+
+        <tr>
+            <td>@c.EmployeeId </td>
+            <td>@c.EmployeeName </td>
+            <td>@c.EmployeeSurname </td>
+            <td>@c.EmployeeImage </td>
+            <td>@c.Department.DepartmentName </td>
+            <td><a href="/Employee/GetEmployee/@c.EmployeeId" class="btn btn-info">Update</a></td>
+            <td><a href="/Department/DepartmentEmployeeSale/@c.EmployeeId" class="btn btn-default" style="background-color:thistle">Sales</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Employee/AddEmployee" class="btn btn-primary"> Add Staff</a>
+

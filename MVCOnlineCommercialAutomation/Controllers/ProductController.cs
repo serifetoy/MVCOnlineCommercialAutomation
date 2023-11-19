@@ -72,5 +72,11 @@ namespace MVCOnlineCommercialAutomation.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult ProductList()
+        {
+            var products = context.Products.ToList();
+            return View(products);
+        }
     }
 }

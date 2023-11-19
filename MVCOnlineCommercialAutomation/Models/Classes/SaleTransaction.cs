@@ -10,9 +10,6 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
     {
         [Key]
         public int SaleTransactionId { get; set; }
-        //ürün
-        //cari-customer
-        //personel
         public DateTime SaleTransactionDate { get; set; }
         public int Quantity { get; set; }//miktar
         public decimal Price { get; set; }//fiyat
