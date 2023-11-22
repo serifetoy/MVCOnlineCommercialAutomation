@@ -22,13 +22,16 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         [StringLength(60)]
         public string TaxAdministration { get; set; } //vergi dairesi
         public DateTime InvoiceDate { get; set; }
-        public DateTime InvoiceTime { get; set; }
+        [Column(TypeName = "char")]
+        [StringLength(5)]
+        public string InvoiceTime { get; set; }
         [Column(TypeName = "VarChar")]
         [StringLength(30)]
         public string Receiver { get; set;} //teslim alan 
         [Column(TypeName = "VarChar")]
         [StringLength(30)]
         public string Deliverer { get; set;} //teslim eden
+        public decimal Total { get; set; }
         public ICollection<InvoiceItem> InvoicesItems { get; set; }
     }
 }

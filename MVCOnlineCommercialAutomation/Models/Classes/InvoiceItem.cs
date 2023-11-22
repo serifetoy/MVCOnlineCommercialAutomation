@@ -13,10 +13,12 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         public int InvoiceItemId { get; set; }
         [Column(TypeName = "VarChar")]
         [StringLength(100)]
-        public string Status { get; set; }
+        public string Explanation { get; set; }
         public int Quantity{ get; set; }//miktar
         public decimal UnitPrice{ get; set; }
         public decimal Price{ get; set; }//fiyat
-        public Invoice Invoices { get; set; }
+        public int InvoiceId { get; set; }
+        public virtual Invoice Invoices { get; set; }
+
     }
 }

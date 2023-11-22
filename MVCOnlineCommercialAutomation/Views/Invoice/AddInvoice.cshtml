@@ -1,0 +1,37 @@
+﻿@model MVCOnlineCommercialAutomation.Models.Classes.Invoice
+@{
+    ViewBag.Title = "AddInvoice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Add Invoice</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.HiddenFor(x => x.InvoiceId)
+    @Html.LabelFor(x => x.InvoiceSerialNo)
+    @Html.TextBoxFor(x => x.InvoiceSerialNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.InvoiceSequenceNo)
+    @Html.TextBoxFor(x => x.InvoiceSequenceNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.InvoiceDate)
+    @Html.TextBoxFor(x => x.InvoiceDate, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.InvoiceTime)
+    @Html.TextBoxFor(x => x.InvoiceTime, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaxAdministration)
+    @Html.TextBoxFor(x => x.TaxAdministration, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Receiver)
+    @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Deliverer)
+    @Html.TextBoxFor(x => x.Deliverer, new { @class = "form-control" })
+    <br />
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>
+
+

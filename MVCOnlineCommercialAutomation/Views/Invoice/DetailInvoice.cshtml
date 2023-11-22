@@ -1,0 +1,37 @@
+﻿@using MVCOnlineCommercialAutomation.Models.Classes
+@model List<InvoiceItem>
+@{
+    ViewBag.Title = "DetailInvoice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Invoice Items Page</h2>
+<br />
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+<table class="table table-hover">
+    <tr>
+        <td>ID</td>
+        <td>Explanation</td>
+        <td>Quantity</td>
+        <td>Unit Price</td>
+        <td>Price</td>
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.InvoiceItemId</td>
+            <td>@d.Explanation</td>
+            <td>@d.Quantity</td>
+            <td>@d.UnitPrice</td>
+            <td>@d.Price</td>
+        </tr>
+    }
+</table>
+
+
+
+<a href="/Invoice/AddInvoiceItem" class="btn btn-default" style="background-color:aquamarine">New Invoice Items</a></
