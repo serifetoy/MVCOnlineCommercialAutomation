@@ -18,6 +18,7 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<SaleTransaction> SaleTransactions { get; set; }
+        public DbSet<DetailForProduct> DetailForProducts { get; set; }
 
     }
 }
