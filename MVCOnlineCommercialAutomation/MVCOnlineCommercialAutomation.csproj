@@ -144,6 +144,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Category.cs" />
+    <Compile Include="Models\Classes\ClassGroup.cs" />
+    <Compile Include="Models\Classes\ClassGroup2.cs" />
+    <Compile Include="Models\Classes\ClassGroup3.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\Customer.cs" />
     <Compile Include="Models\Classes\Department.cs" />
@@ -2836,6 +2839,11 @@
     <Content Include="thumber\scss\_site-navbar.scss" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\ProductDetails\Index.cshtml" />
+    <Content Include="Views\Statistic\BasicTable.cshtml" />
+    <Content Include="Views\Statistic\Partial1.cshtml" />
+    <Content Include="Views\Statistic\Partial2.cshtml" />
+    <Content Include="Views\Statistic\Partial3.cshtml" />
+    <Content Include="Views\Statistic\Partial4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar-bootstrap\main.d.ts" />

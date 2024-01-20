@@ -58,7 +58,7 @@ namespace MVCOnlineCommercialAutomation.Controllers
                 .OrderByDescending(z => z.Count())
                 .Select(x => x.Key)
                 .FirstOrDefault())
-                .Select(k=>k.ProductName).FirstOrDefault();
+                .Select(k => k.ProductName).FirstOrDefault();
             ViewBag.v13 = value13;
 
 
@@ -79,6 +79,51 @@ namespace MVCOnlineCommercialAutomation.Controllers
 
 
             return View();
+        }
+        public ActionResult BasicTable()
+        {
+            var query = from x in context.Customers
+                        group x by x.CustomerCity into p
+                        select new ClassGroup
+                        {
+                            City = p.Key,
+                            Number = p.Count()
+                        };
+
+            return View(query.ToList());
+            //return View();
+        }
+        public PartialViewResult Partial1()//
+        {
+            var query = from x in context.Employees
+                        group x by x.Department.DepartmentName into g
+                        select new ClassGroup2()
+                        {
+                            Department = g.Key,
+                            Number = g.Count()
+                        };
+            return PartialView(query.ToList());
+        }
+        public PartialViewResult Partial2()//Customers
+        {
+            var query = context.Customers.ToList();
+            return PartialView(query);
+        }
+        public PartialViewResult Partial3()//Products
+        {
+            var query = context.Products.ToList();
+            return PartialView(query);
+        }
+        public PartialViewResult Partial4()//Products
+        {
+            var query = from x in context.Products
+                        group x by x.Brand into g
+                        select new ClassGroup3()
+                        {
+                            Brand = g.Key,
+                            Number = g.Count()
+                        };
+            return PartialView(query.ToList());
         }
     }
 }

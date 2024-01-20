@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVCOnlineCommercialAutomation.Models.Classes.ClassGroup2>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Department Personnnel Numbers</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-sm">F
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Department</th>
+                    <th>Progress Bar</th>
+                    <th style="width: 40px">Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int seqnumber = 0;}
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@{seqnumber++;} @seqnumber</td>
+                        <td>@x.Department</td>
+                        <td>
+                            @if (x.Number >= 1 && x.Number <= 2)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                </div>
+                            }
+                            @if (x.Number == 3 && x.Number <= 5)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width: 55%"></div>
+                                </div>
+                            }
+                            @if (x.Number >= 6)
+                            {
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-success" style="width: 55%"></div>
+                                </div>
+                            }
+                        </td>
+                        <td><span class="badge bg-danger">@x.Number</span></td>
+                    </tr>
+                }
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

@@ -87,5 +87,16 @@ namespace MVCOnlineCommercialAutomation.Controllers
         //    return View();
 
         //}
+        public ActionResult EmployeeList(Employee employee)
+        {
+            var e = context.Employees.Find(employee.EmployeeId);
+            e.EmployeeName = employee.EmployeeName;
+            e.EmployeeSurname = employee.EmployeeSurname;
+            e.EmployeeImage = employee.EmployeeImage;
+            e.DepartmentId = employee.DepartmentId;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
