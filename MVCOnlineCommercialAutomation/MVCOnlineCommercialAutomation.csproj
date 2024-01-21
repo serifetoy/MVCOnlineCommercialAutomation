@@ -2844,6 +2844,7 @@
     <Content Include="Views\Statistic\Partial2.cshtml" />
     <Content Include="Views\Statistic\Partial3.cshtml" />
     <Content Include="Views\Statistic\Partial4.cshtml" />
+    <Content Include="Views\Employee\EmployeeList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar-bootstrap\main.d.ts" />
