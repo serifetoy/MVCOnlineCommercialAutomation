@@ -138,6 +138,7 @@
     <Compile Include="Controllers\ProductDetailsController.cs" />
     <Compile Include="Controllers\SaleTransactionController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
+    <Compile Include="Controllers\ToDoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,6 +159,7 @@
     <Compile Include="Models\Classes\Product.cs" />
     <Compile Include="Models\Classes\ProductIntroduction.cs" />
     <Compile Include="Models\Classes\SaleTransaction.cs" />
+    <Compile Include="Models\Classes\ToDoClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2845,6 +2847,7 @@
     <Content Include="Views\Statistic\Partial3.cshtml" />
     <Content Include="Views\Statistic\Partial4.cshtml" />
     <Content Include="Views\Employee\EmployeeList.cshtml" />
+    <Content Include="Views\ToDo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar-bootstrap\main.d.ts" />
@@ -2869,6 +2872,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
