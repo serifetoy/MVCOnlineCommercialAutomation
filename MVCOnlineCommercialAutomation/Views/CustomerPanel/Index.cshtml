@@ -1,0 +1,33 @@
+﻿@model MVCOnlineCommercialAutomation.Models.Classes.Customer
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+<br />
+<h2>Customer Information Panel</h2>
+
+
+
+@using (Html.BeginForm("Index2", "CustomerPanel", FormMethod.Post))
+{
+    <table class="table table-bordered">
+        <tr>
+            <td> <label>Email Address: @HttpContext.Current.User.Identity.Name</label></td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.PasswordFor(x => x.CustomerPassword, new { @class = "form-control" })</td>
+        </tr>
+    </table>
+
+    <button class="btn btn-dark">Update My Information</button>
+
+}

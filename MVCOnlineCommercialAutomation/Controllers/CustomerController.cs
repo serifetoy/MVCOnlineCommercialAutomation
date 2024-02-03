@@ -60,19 +60,6 @@ namespace MVCOnlineCommercialAutomation.Controllers
             return RedirectToAction("Index");
         }
 
-        //public ActionResult DetailCustomer(int id)
-        //{
-        //    var customer = context.Employees
-        //        .Where(x => x.CustomerId == id).ToList();
-        //    var dep = context.Customers
-        //        .Where(x => x.CustomerId == id).Select(y => y.CustomerName)
-        //        .FirstOrDefault();
-        //    ViewBag.dpt = dep;
-        //    return View(customer);
-        //    return View();
-
-        //}
-
         public ActionResult CustomerSale(int id)
         {
             var values = context.SaleTransactions.Where(x => x.CustomerId == id).ToList();

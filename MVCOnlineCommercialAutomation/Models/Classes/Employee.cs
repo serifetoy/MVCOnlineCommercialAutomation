@@ -11,12 +11,16 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
     {
         [Key]
         public int EmployeeId { get; set; }
+
+        [Display(Name = "Employee Name")]
         [Column(TypeName = "VarChar")]
         [StringLength(30)]
         public string EmployeeName { get; set; }
+        [Display(Name = "Employee Surname")]
         [Column(TypeName = "VarChar")]
         [StringLength(30)]
         public string EmployeeSurname { get; set; }
+        [Display(Name = "Image")]
         [Column(TypeName = "VarChar")]
         [StringLength(250)]
         public string EmployeeImage { get; set; }

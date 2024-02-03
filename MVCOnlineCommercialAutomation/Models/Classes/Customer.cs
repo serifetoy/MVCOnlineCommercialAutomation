@@ -25,6 +25,10 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         [StringLength(50)]
         public string CustomerEmail { get; set; }
 
+        [Column(TypeName = "VarChar")]
+        [StringLength(25)]
+        public string CustomerPassword { get; set; }
+
         public bool Status { get; set; }
         public ICollection<SaleTransaction> SaleTransactions { get; set; }
 
