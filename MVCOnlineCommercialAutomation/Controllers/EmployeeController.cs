@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -34,7 +35,14 @@ namespace MVCOnlineCommercialAutomation.Controllers
         [HttpPost]
         public ActionResult AddEmployee(Employee employee)
         {
-            //employee.Status = true;
+            if (Request.Files.Count > 0)
+            {
+                string fileName = Path.GetFileName(Request.Files[0].FileName);
+                string extension = Path.GetExtension(Request.Files[0].FileName);
+                string path = "~/Images/" + fileName;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+                employee.EmployeeImage = "/Images/" + fileName ;
+            }
             context.Employees.Add(employee);
             context.SaveChanges();
             return RedirectToAction("Index");
@@ -62,10 +70,14 @@ namespace MVCOnlineCommercialAutomation.Controllers
 
         public ActionResult UpdateEmployee(Employee employee)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View("GetEmployee");
-            //}
+            if (Request.Files.Count > 0)
+            {
+                string fileName = Path.GetFileName(Request.Files[0].FileName);
+                string extension = Path.GetExtension(Request.Files[0].FileName);
+                string path = "~/Images/" + fileName;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+                employee.EmployeeImage = "/Images/" + fileName;
+            }
             var e = context.Employees.Find(employee.EmployeeId);
             e.EmployeeName = employee.EmployeeName;
             e.EmployeeSurname = employee.EmployeeSurname;

@@ -4,11 +4,26 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<style>
+    /* Stil Kodları */
+    .custom-label {
+        display: inline-block;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+</style>
+
 <br />
 <h2>Get Employee </h2>
 <br />
 
-@using (Html.BeginForm("UpdateEmployee", "Employee", FormMethod.Post))
+@using (Html.BeginForm("UpdateEmployee", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-group">
         @Html.HiddenFor(x => x.EmployeeId)
@@ -18,8 +33,8 @@
         @Html.LabelFor(x => x.EmployeeSurname)
         @Html.TextBoxFor(x => x.EmployeeSurname, new { @class = "form-control" })
         <br />
-        @Html.LabelFor(x => x.EmployeeImage)
-        @Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })
+        <label class="custom-label" for="EmployeeImage">Select File</label>
+        <input class="custom-label" name="EmployeeImage"type="file" id="EmployeeImage" />
         <br />
         @Html.LabelFor(x => x.Department)
         @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.val1, new { @class = "form-control" })
