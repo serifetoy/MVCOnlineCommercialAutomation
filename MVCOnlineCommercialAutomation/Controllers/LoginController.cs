@@ -44,13 +44,37 @@ namespace MVCOnlineCommercialAutomation.Controllers
             {
                 FormsAuthentication.SetAuthCookie(inf.CustomerEmail, false);
                 Session["CustomerEmail"] = inf.CustomerEmail.ToString();
-                return RedirectToAction("Index","CustomerPanel");
+                return RedirectToAction("Index", "CustomerPanel");
             }
             else
             {
                 return RedirectToAction("Index", "Login");
             }
 
+        }
+
+        [HttpGet]
+        public ActionResult AdminLogin()
+        {
+
+            return View();
+        }
+
+        public ActionResult AdminLogin(Admin admin)
+        {
+
+            var info = context.Admins.FirstOrDefault(x => x.AdminName == admin.AdminName && x.Password == admin.Password);
+            if (info != null)
+            {
+                FormsAuthentication.SetAuthCookie(info.AdminName, false);
+                Session["AdminName"] = info.AdminName.ToString();
+                return RedirectToAction("Index", "Category");
+            }
+            else
+            {
+                //ModelState.AddModelError("a", "Kullanıcı adı veya şifre hatalı."); olmadı burası
+                return RedirectToAction("Index", "Login");
+            }
         }
     }
 }

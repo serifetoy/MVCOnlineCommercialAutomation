@@ -72,10 +72,10 @@ namespace MVCOnlineCommercialAutomation.Controllers
             var value15 = context.SaleTransactions.Count(x => x.SaleTransactionDate == today).ToString();
             ViewBag.v15 = value15;
 
-            //var value16 = context.SaleTransactions.Where(x => x.SaleTransactionDate == today)
-            //    .Sum(y=>y.TotalAmount)
-            //    .ToString();
-            //ViewBag.v16 = value16;
+            var value16 = context.SaleTransactions.Where(x => x.SaleTransactionDate == today)
+                .Sum(y => (decimal?)y.TotalAmount)
+                .ToString();
+            ViewBag.v16 = value16;
 
 
             return View();

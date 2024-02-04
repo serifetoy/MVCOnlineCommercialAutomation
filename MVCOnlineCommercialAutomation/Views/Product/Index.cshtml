@@ -1,22 +1,29 @@
 ﻿@using MVCOnlineCommercialAutomation.Models.Classes
-@model List<Product>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <br />
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+{
+    <p>
+         Product Name : @Html.TextBox("parameter")
+        <input type="submit" value="search" />
+    </p>
+}
 
 <table class="table table-bordered" style="margin-top: 20px">
     <tr>
-        <th>ID</th>
         <th>Product Name</th>
         <th>Brand</th>
         <th>Stock</th>
         <th>Purchase Price</th>
         <th>Sale Price</th>
         <th>Category</th>
-        <th>Image</th>
         <th>Delete</th>
         <th>Update</th>
 
@@ -25,18 +32,17 @@
     {
 
         <tr>
-            <td>@p.ProductId</td>
             <td>@p.ProductName</td>
             <td>@p.Brand</td>
             <td>@p.Stock</td>
-            <td>@p.PurchasePrice</td>
-            <td>@p.SellingePrice</td>
+            <td>@p.PurchasePrice $</td>
+            <td>@p.SellingePrice $</td>
             <td>@p.Category.CategoryName</td>
-            <td>@p.ProductImage</td>
             <td><a href="/Product/DeleteProduct/@p.ProductId" class="btn btn-danger">Delete</a></td>
             <td><a href="/Product/GetProduct/@p.ProductId" class="btn btn-info">Update</a></td>
         </tr>
     }
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
 
 <a href="/Product/AddProduct" class="btn btn-primary"> Add Product</a>

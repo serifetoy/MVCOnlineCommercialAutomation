@@ -125,11 +125,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <h3>Personnel Login Form</h3>
                     <div class="clear"></div>
                     <div class="login-agileits-top">
-                        <form action="#" method="post">
+                        @using (Html.BeginForm("AdminLogin", "Login", FormMethod.Post))
+                        {
                             <input type="text" class="name" name="AdminName" Placeholder="User Name" required="" />
                             <input type="password" class="password" name="Password" Placeholder="Password" required="" />
-                            <input type="submit" value="Login">
-                        </form>
+                            <input type="submit" value="Login">                      
+                        }
                     </div>
                     <div class="login-agileits-bottom">
                         <h6><a href="#">Forgot password?</a></h6>
@@ -153,20 +154,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--popup-js-->
     <script src="~/weblogin/js/jquery.magnific-popup.js" type="text/javascript"></script>
     <script>
-	$(document).ready(function() {
-	$('.popup-with-zoom-anim').magnificPopup({
-		type: 'inline',
-		fixedContentPos: false,
-		fixedBgPos: true,
-		overflowY: 'auto',
-		closeBtnInside: true,
-		preloader: false,
-		midClick: true,
-		removalDelay: 300,
-		mainClass: 'my-mfp-zoom-in'
-	});
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
 
-	});
+        });
     </script>
     <!--//popup-js-->
 
