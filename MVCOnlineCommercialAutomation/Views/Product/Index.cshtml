@@ -6,12 +6,33 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).on('click', '#btn', function (e) {
+        e.preventDefault();
+        swal({
+            title: "Are you sure?",
+            text: "Once you delete this record, you cannot get it back!",
+            icon: "warning",
+            buttons: ["Cancel", "Delete"],
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = $(this).attr('href');
+                } else {
+                    swal("Your record is safe!");
+                }
+            });
+    });
+</script>
 
 <br />
 @using (Html.BeginForm("Index", "Product", FormMethod.Get))
 {
     <p>
-         Product Name : @Html.TextBox("parameter")
+        Product Name : @Html.TextBox("parameter")
         <input type="submit" value="search" />
     </p>
 }
@@ -26,6 +47,7 @@
         <th>Category</th>
         <th>Delete</th>
         <th>Update</th>
+        <th>Make Sales</th>
 
     </tr>
     @foreach (var p in Model)
@@ -38,11 +60,14 @@
             <td>@p.PurchasePrice $</td>
             <td>@p.SellingePrice $</td>
             <td>@p.Category.CategoryName</td>
-            <td><a href="/Product/DeleteProduct/@p.ProductId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Product/DeleteProduct/@p.ProductId" class="btn btn-danger" id="btn">Delete</a></td>
             <td><a href="/Product/GetProduct/@p.ProductId" class="btn btn-info">Update</a></td>
+            <td><a href="/Product/MakeSalesProduct/@p.ProductId" class="btn btn-default" style="background-color:thistle">Make Sales</a></td>
         </tr>
     }
 </table>
 @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+
 
 <a href="/Product/AddProduct" class="btn btn-primary"> Add Product</a>

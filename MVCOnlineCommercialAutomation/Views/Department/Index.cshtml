@@ -4,10 +4,30 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).on('click', '#btn', function (e) {
+        e.preventDefault();
+        swal({
+            title: "Are you sure?",
+            text: "Once you delete this record, you cannot get it back!!",
+            icon: "warning",
+            buttons: ["Cancel", "Delete"],
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = $(this).attr('href');
+                } else {
+                    swal("Your record is safe!");
+                }
+            });
+    });
+</script>
 
 <table class="table table-bordered" style="margin-top: 20px">
     <tr>
-        <th>ID</th>
         <th>Department Name</th>
         <th>Delete</th>
         <th>Update</th>
@@ -17,9 +37,8 @@
     {
 
         <tr>
-            <td>@d.DepartmentId </td>
             <td>@d.DepartmentName </td>
-            <td><a href="/Department/DeleteDepartment/@d.DepartmentId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Department/DeleteDepartment/@d.DepartmentId" class="btn btn-danger" id="btn">Delete</a></td>
             <td><a href="/Department/GetDepartment/@d.DepartmentId" class="btn btn-info">Update</a></td>
             <td><a href="/Department/DetailDepartment/@d.DepartmentId" class="btn btn-info" style="background-color:slateblue" color="black">Details</a></td>
         </tr>

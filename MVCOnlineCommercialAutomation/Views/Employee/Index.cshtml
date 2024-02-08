@@ -4,10 +4,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 
 <table class="table table-bordered" style="margin-top: 20px">
     <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Surname</th>
         <th>Image</th>
@@ -19,10 +20,9 @@
     {
 
         <tr>
-            <td>@c.EmployeeId </td>
             <td>@c.EmployeeName </td>
             <td>@c.EmployeeSurname </td>
-            <td><img src="@c.EmployeeImage" style="width:75px; height:50px"/></td>
+            <td><img src="@c.EmployeeImage" style="width:75px; height:50px" /></td>
             <td>@c.Department.DepartmentName </td>
             <td><a href="/Employee/GetEmployee/@c.EmployeeId" class="btn btn-info">Update</a></td>
             <td><a href="/Department/DepartmentEmployeeSale/@c.EmployeeId" class="btn btn-default" style="background-color:thistle">Sales</a></td>

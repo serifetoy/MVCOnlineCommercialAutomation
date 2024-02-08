@@ -1,0 +1,42 @@
+﻿@model MVCOnlineCommercialAutomation.Models.Classes.SaleTransaction
+@{
+    ViewBag.Title = "MakeSalesProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    // quantity *price = totalamount
+    function sum() {
+        var num1 = document.getElementById('txt1').value;
+        var num2 = document.getElementById('txt2').value;
+        var result = parseInt(num1) * parseInt(num2);
+        if (!isNaN(result)) {
+            document.getElementById('txt3').value = result;
+        }
+    }
+</script>
+<br />
+<h2>Make Sales Product</h2>
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.ProductId)
+    <input type="text" name="ProductId" value="@ViewBag.val2" class="form-control" readonly />
+    <br />
+    @Html.LabelFor(x => x.EmployeeId)
+    @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.val1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CustomerId)
+    @Html.TextBoxFor(x => x.CustomerId, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Quantity)
+    <input type="number" name="Quantity" id="txt1" onchange="sum()" max="10" min="0" @ViewBag.val3 " class="form-control" />
+    <br />
+    @Html.LabelFor(x => x.Price)
+    <input type="text" name="Price" id="txt2" onkeyup="sum()" value="@ViewBag.val3" class="form-control" />
+    <br />
+    @Html.LabelFor(x => x.TotalAmount)
+    <input type="text" name="TotalAmount" id="txt3" value="0" class="form-control" readonly />
+    <br />
+    @Html.LabelFor(x => x.SaleTransactionDate)
+    @Html.TextBoxFor(x => x.SaleTransactionDate, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Make Sale</button>
+</form>

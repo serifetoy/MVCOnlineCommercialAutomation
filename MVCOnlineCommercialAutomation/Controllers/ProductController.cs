@@ -14,7 +14,7 @@ namespace MVCOnlineCommercialAutomation.Controllers
     {
         // GET: Product
         Context context = new Context();
-        public ActionResult Index(int page = 1, string parameter = null )
+        public ActionResult Index(int page = 1, string parameter = null)
         {
             var products = from x in context.Products select x;
             if (!string.IsNullOrEmpty(parameter))
@@ -84,6 +84,29 @@ namespace MVCOnlineCommercialAutomation.Controllers
         {
             var products = context.Products.ToList();
             return View(products);
+        }
+        [HttpGet]
+        public ActionResult MakeSalesProduct(int id)
+        {
+            List<SelectListItem> saleemployee = (from x in context.Employees.ToList()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = x.EmployeeName + " " + x.EmployeeSurname,
+                                                     Value = x.EmployeeId.ToString(),
+                                                 }).ToList();
+            ViewBag.val1 = saleemployee;
+            var product = context.Products.Find(id);
+            ViewBag.val2 = product.ProductId;
+            ViewBag.val3 = product.SellingePrice;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult MakeSalesProduct(SaleTransaction saleTransaction)
+        {
+            saleTransaction.SaleTransactionDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            context.SaleTransactions.Add(saleTransaction);
+            context.SaveChanges();
+            return RedirectToAction("Index","SaleTransaction");
         }
     }
 }

@@ -4,7 +4,27 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).on('click', '#btn', function (e) {
+        e.preventDefault();
+        swal({
+            title: "Are you sure?",
+            text: "Once you delete this record, you cannot get it back!!",
+            icon: "warning",
+            buttons: ["Cancel", "Delete"],
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = $(this).attr('href');
+                } else {
+                    swal("Your record is safe!");
+                }
+            });
+    });
+</script>
 <table class="table table-bordered" style="margin-top: 20px">
     <tr>
         <th>ID</th>
@@ -25,7 +45,7 @@
             <td>@c.CustomerSurname </td>
             <td>@c.CustomerCity </td>
             <td>@c.CustomerEmail </td>
-            <td><a href="/Customer/DeleteCustomer/@c.CustomerId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Customer/DeleteCustomer/@c.CustomerId" class="btn btn-danger" id="btn">Delete</a></td>
             <td><a href="/Customer/GetCustomer/@c.CustomerId" class="btn btn-info">Update</a></td>
             <td><a href="/Customer/CustomerSale/@c.CustomerId" class="btn btn-default" style="background-color:thistle">Sales History</a></td>
         </tr>
