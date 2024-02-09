@@ -1,0 +1,28 @@
+﻿@model MVCOnlineCommercialAutomation.Models.Classes.ShipmentDetail
+@{
+    ViewBag.Title = "AddShipment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>New Shipment Details Page</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.ShippingCode)
+    <input type="text" name="ShippingCode" class="form-control" value="@ViewBag.shipmentCode" readonly />
+    <br />
+    @Html.LabelFor(x => x.Personnel)
+    @Html.TextBoxFor(x => x.Personnel, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Reciever)
+    @Html.TextBoxFor(x => x.Reciever, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Date)
+    <input class="form-control" type="date" name="Date" />
+    <br />
+    @Html.LabelFor(x => x.Explanation)
+    @Html.TextAreaFor(x => x.Explanation, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>
+

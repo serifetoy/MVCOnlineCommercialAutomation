@@ -145,6 +145,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductDetailsController.cs" />
     <Compile Include="Controllers\SaleTransactionController.cs" />
+    <Compile Include="Controllers\ShipmentController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\ToDoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -167,6 +168,8 @@
     <Compile Include="Models\Classes\Product.cs" />
     <Compile Include="Models\Classes\ProductIntroduction.cs" />
     <Compile Include="Models\Classes\SaleTransaction.cs" />
+    <Compile Include="Models\Classes\ShipmentDetail.cs" />
+    <Compile Include="Models\Classes\ShipmentTracking.cs" />
     <Compile Include="Models\Classes\ToDoClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2913,6 +2916,9 @@
     <Content Include="Views\CustomerPanel\Orders.cshtml" />
     <Content Include="Views\Home\Alertsample.cshtml" />
     <Content Include="Views\Product\MakeSalesProduct.cshtml" />
+    <Content Include="Views\Shipment\Index.cshtml" />
+    <Content Include="Views\Shipment\AddShipment.cshtml" />
+    <Content Include="Views\Shipment\ShippingTrackingsDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar-bootstrap\main.d.ts" />

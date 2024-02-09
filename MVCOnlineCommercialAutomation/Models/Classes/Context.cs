@@ -20,6 +20,8 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         public DbSet<SaleTransaction> SaleTransactions { get; set; }
         public DbSet<DetailForProduct> DetailForProducts { get; set; }
         public DbSet<ToDoClass> ToDoClasses { get; set; }
+        public DbSet<ShipmentDetail> ShipmentDetails { get; set; }
+        public DbSet<ShipmentTracking> ShipmentTrackings { get; set; }
 
     }
 }

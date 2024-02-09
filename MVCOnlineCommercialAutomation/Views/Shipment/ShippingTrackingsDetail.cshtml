@@ -1,0 +1,21 @@
+﻿@using MVCOnlineCommercialAutomation.Models.Classes
+@model List<ShipmentTracking>
+@{
+    ViewBag.Title = "ShippingTrackingsDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table class="table table-bordered" style="margin-top: 20px">
+    <tr>
+        <th>Explanation</th>
+        <th>Date</th>
+    </tr>
+    @foreach (var c in Model)
+    {
+
+        <tr>
+            <td>@c.Explanation </td>
+            <td>@c.DateTime </td>
+        </tr>
+    }
+</table>
