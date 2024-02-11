@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -112,9 +115,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -139,9 +139,11 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\GraphicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductDetailsController.cs" />
     <Compile Include="Controllers\SaleTransactionController.cs" />
@@ -164,9 +166,12 @@
     <Compile Include="Models\Classes\Employee.cs" />
     <Compile Include="Models\Classes\InvoiceItem.cs" />
     <Compile Include="Models\Classes\Invoice.cs" />
+    <Compile Include="Models\Classes\Message.cs" />
     <Compile Include="Models\Classes\Payment.cs" />
     <Compile Include="Models\Classes\Product.cs" />
     <Compile Include="Models\Classes\ProductIntroduction.cs" />
+    <Compile Include="Models\Classes\ProductStock.cs" />
+    <Compile Include="Models\Classes\ProductStockDb.cs" />
     <Compile Include="Models\Classes\SaleTransaction.cs" />
     <Compile Include="Models\Classes\ShipmentDetail.cs" />
     <Compile Include="Models\Classes\ShipmentTracking.cs" />
@@ -2919,6 +2924,18 @@
     <Content Include="Views\Shipment\Index.cshtml" />
     <Content Include="Views\Shipment\AddShipment.cshtml" />
     <Content Include="Views\Shipment\ShippingTrackingsDetail.cshtml" />
+    <Content Include="Views\Graphic\Index.cshtml" />
+    <Content Include="Views\Graphic\Index2.cshtml" />
+    <Content Include="Views\Graphic\Index3.cshtml" />
+    <Content Include="Views\Graphic\Index4.cshtml" />
+    <Content Include="Views\Graphic\Index5.cshtml" />
+    <Content Include="Views\Graphic\Index6.cshtml" />
+    <Content Include="Views\Graphic\Index7.cshtml" />
+    <Content Include="Views\CustomerPanel\IncomingMesaages.cshtml" />
+    <Content Include="Views\CustomerPanel\IncomingMessages.cshtml" />
+    <Content Include="Views\CustomerPanel\OutgoingMessages.cshtml" />
+    <Content Include="Views\CustomerPanel\DetailMessage.cshtml" />
+    <Content Include="Views\CustomerPanel\AddMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar-bootstrap\main.d.ts" />
@@ -2945,6 +2962,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
+    <Folder Include="Views\Message\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

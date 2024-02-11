@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+@{
+    var graphic = new Chart(width: 500, height: 500);
+    graphic.AddTitle(text: "Categories and Number of Products");
+    graphic.AddLegend(title: "Values");
+
+    graphic.AddSeries(
+        name: "Data",
+        chartType:"Pie",
+        xValue: new[] { "White Goods", "Television", "Computer","Small Appliances" },
+        yValues: new[] { 500, 250, 340, 620 });
+    graphic.Write();
+}

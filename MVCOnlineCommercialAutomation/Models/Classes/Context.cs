@@ -22,6 +22,7 @@ namespace MVCOnlineCommercialAutomation.Models.Classes
         public DbSet<ToDoClass> ToDoClasses { get; set; }
         public DbSet<ShipmentDetail> ShipmentDetails { get; set; }
         public DbSet<ShipmentTracking> ShipmentTrackings { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
     }
 }
