@@ -1,0 +1,49 @@
+﻿
+@using MVCOnlineCommercialAutomation.Models.Classes
+@model List<ShipmentTracking>
+@{
+    ViewBag.Title = "CustomerShipmentTracking";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+<style>
+    .centered {
+        text-align: center;
+    }
+</style>
+<br />
+<table class="table table-bordered" style="margin-top: 20px">
+    <tr>
+        <th></th>
+        <th>Explanation</th>
+        <th>Date</th>
+    </tr>
+    @{ int i = 0;}
+    @foreach (var c in Model)
+    {
+
+        <tr>
+            <th class="centered">@{i++;} @i </th>
+            <td>@c.Explanation </td>
+            <td>@c.DateTime </td>
+        </tr>
+    }
+</table>
+
+@*<table class="table table-condensed my-2">
+    <tr>
+        <th>Sıra</th>
+        <th>Açıklama</th>
+        <th>Tarih</th>
+
+    </tr>
+    @{ int i = 0;}
+    @foreach (var x in Model)
+    {
+
+        <tr>
+            <td>@{i++;} @i</td>
+            <td>@x.Aciklama</td>
+            <td>@x.TarihZaman.ToString("dd/mm/yyyy")</td>
+        </tr>
+    }
+</table>*@

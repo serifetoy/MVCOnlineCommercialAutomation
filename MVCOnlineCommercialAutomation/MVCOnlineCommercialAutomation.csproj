@@ -2936,6 +2936,8 @@
     <Content Include="Views\CustomerPanel\OutgoingMessages.cshtml" />
     <Content Include="Views\CustomerPanel\DetailMessage.cshtml" />
     <Content Include="Views\CustomerPanel\AddMessage.cshtml" />
+    <Content Include="Views\CustomerPanel\ShipmentTracking.cshtml" />
+    <Content Include="Views\CustomerPanel\CustomerShipmentTracking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar-bootstrap\main.d.ts" />

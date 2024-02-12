@@ -1,0 +1,59 @@
+﻿@using MVCOnlineCommercialAutomation.Models.Classes
+@model List<ShipmentDetail>
+@{
+    ViewBag.Title = "ShipmentTracking";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).on('click', '#btn', function (e) {
+        e.preventDefault();
+        swal({
+            title: "Are you sure?",
+            text: "Once you delete this record, you cannot get it back!!",
+            icon: "warning",
+            buttons: ["Cancel", "Delete"],
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = $(this).attr('href');
+                } else {
+                    swal("Your record is safe!");
+                }
+            });
+    });
+</script>
+
+<br />
+@using (Html.BeginForm("ShipmentTracking", "CustomerPanel", FormMethod.Get))
+{
+    <p>
+        Shipment Tracking Number : @Html.TextBox("parameter")
+        <input type="submit" value="search" />
+    </p>
+}
+
+<table class="table table-bordered" style="margin-top: 20px">
+    <tr>
+        <th>Personnel</th>
+        <th>Receiver</th>
+        <th>Date</th>
+        <th>Shipping Code</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var s in Model)
+    {
+
+        <tr>
+            <td>@s.Personnel </td>
+            <td>@s.Reciever </td>
+            <td>@s.Date </td>
+            <td>@s.ShippingCode </td>
+            <td><a href="/CustomerPanel/CustomerShipmentTracking/@s.ShippingCode" class="btn btn-info" style="background-color:slateblue" color="black">Details</a></td>
+        </tr>
+    }
+</table>
+

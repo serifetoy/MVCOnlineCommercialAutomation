@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.Security;
+using System.Web.UI.WebControls;
 
 namespace MVCOnlineCommercialAutomation.Controllers
 {
@@ -38,7 +40,7 @@ namespace MVCOnlineCommercialAutomation.Controllers
         public ActionResult IncomingMessages()
         {
             var email = (string)Session["CustomerEmail"];
-            var messages = context.Messages.Where(x=> x.Receiver == email).OrderByDescending(x=> x.MessageId).ToList();
+            var messages = context.Messages.Where(x => x.Receiver == email).OrderByDescending(x => x.MessageId).ToList();
             var incomingmessage = context.Messages.Count(x => x.Receiver == email).ToString();
             var outgoingmessage = context.Messages.Count(x => x.Sender == email).ToString();
             ViewBag.outgoingmessage = outgoingmessage;
@@ -57,7 +59,7 @@ namespace MVCOnlineCommercialAutomation.Controllers
         }
         public ActionResult DetailMessage(int id)
         {
-            var values = context.Messages.Where(x=> x.MessageId == id).ToList();
+            var values = context.Messages.Where(x => x.MessageId == id).ToList();
             var email = (string)Session["CustomerEmail"];
             var messages = context.Messages.Where(x => x.Sender == email).OrderByDescending(x => x.MessageId).ToList();
             var incomingmessage = context.Messages.Count(x => x.Receiver == email).ToString();
@@ -103,7 +105,7 @@ namespace MVCOnlineCommercialAutomation.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddMessage(Message message,int? id)
+        public ActionResult AddMessage(Message message, int? id)
         {
             var email = (string)Session["CustomerEmail"];
             message.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
@@ -111,6 +113,26 @@ namespace MVCOnlineCommercialAutomation.Controllers
             context.Messages.Add(message);
             context.SaveChanges();
             return View(message);
+        }
+
+        public ActionResult ShipmentTracking(string parameter = null)
+        {
+            var shipments = from x in context.ShipmentDetails select x;
+            shipments = shipments.Where(y => y.ShippingCode.Contains(parameter));
+            return View(shipments.ToList());
+        }
+
+        public ActionResult CustomerShipmentTracking(string id)
+        {
+            var values = context.ShipmentTrackings.Where(x => x.ShippingCode == id).ToList();
+            return View(values);
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
         }
 
     }
