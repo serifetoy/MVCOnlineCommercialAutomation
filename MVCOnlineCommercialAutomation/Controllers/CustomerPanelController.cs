@@ -18,7 +18,20 @@ namespace MVCOnlineCommercialAutomation.Controllers
         public ActionResult Index()
         {
             var email = (string)Session["CustomerEmail"];
-            var values = context.Customers.FirstOrDefault(x => x.CustomerEmail == email);
+            var values = context.Messages.Where(x => x.Receiver == email).ToList();
+            ViewBag.Message = email;
+            var emailId = context.Customers.Where(x => x.CustomerEmail == email).Select(y => y.CustomerId).FirstOrDefault();
+            ViewBag.EmailId = emailId;
+            var totalSale = context.SaleTransactions.Where(x => x.CustomerId == emailId).Count();
+            ViewBag.TotalSale = totalSale;
+            var totalAmount = context.SaleTransactions.Where(x => x.CustomerId == emailId).Sum(y => y.TotalAmount);
+            ViewBag.TotalAmount = totalAmount;
+            var totalProducts = context.SaleTransactions.Where(x => x.CustomerId == emailId).Sum(y => y.Quantity);
+            ViewBag.TotalProducts = totalProducts;
+            var nameSurname = context.Customers.Where(x => x.CustomerEmail == email).Select(y => y.CustomerName + " " + y.CustomerSurname).FirstOrDefault();
+            ViewBag.Name = nameSurname;
+            //var message = context.Messages.Where(x => x.Receiver == email).ToList();
+            //ViewBag.Message = message;
             return View(values);
         }
         [HttpPost]
@@ -133,6 +146,29 @@ namespace MVCOnlineCommercialAutomation.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("Index", "Login");
+        }
+
+        public PartialViewResult SettingsPartial()
+        {
+            var email = (string)Session["CustomerEmail"];
+            var id = context.Customers.Where(x => x.CustomerEmail == email).Select(y => y.CustomerId).FirstOrDefault();
+            var findCustomer = context.Customers.Find(id);
+            return PartialView("SettingsPartial", findCustomer);
+        }
+        public PartialViewResult TimelinePartial()
+        {
+            var values = context.Messages.Where(x => x.Sender == "admin").ToList();
+            return PartialView(values);
+        }
+        public ActionResult CustomerSettingsUpdate(Customer c)
+        {
+            var customer = context.Customers.Find(c.CustomerId);
+            customer.CustomerName= c.CustomerName;
+            customer.CustomerSurname = c.CustomerSurname;
+            customer.CustomerEmail= c.CustomerEmail;
+            customer.CustomerPassword= c.CustomerPassword;
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }
