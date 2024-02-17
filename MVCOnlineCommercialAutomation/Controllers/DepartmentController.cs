@@ -17,6 +17,7 @@ namespace MVCOnlineCommercialAutomation.Controllers
             var departments = context.Departments.Where(x => x.Status == true).ToList();
             return View(departments);
         }
+        [Authorize(Roles ="A")]
         [HttpGet]
         public ActionResult AddDepartment()
         {

@@ -76,5 +76,13 @@ namespace MVCOnlineCommercialAutomation.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult DynamicInvoice()
+        {
+            DynamicInv dynamic = new DynamicInv();
+            dynamic.InvoiceValue = context.Invoices.ToList();
+            dynamic.InvoiceItemValue = context.InvoiceItems.ToList();
+            return View(dynamic);
+        }
     }
 }

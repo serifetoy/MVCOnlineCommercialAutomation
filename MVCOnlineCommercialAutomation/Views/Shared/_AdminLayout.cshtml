@@ -35,7 +35,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="#">Settings</a><a class="dropdown-item" href="#">Activity Log</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="/CustomerPanel/LogOut/">Logout</a>
                 </div>
             </li>
         </ul>
@@ -64,7 +64,7 @@
                         </a>
                         <a class="nav-link" href="/Employee/Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
-                            Staff
+                            Personnel
                         </a>
                         <a class="nav-link collapsed" href="/Graphic/Index" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
@@ -95,9 +95,13 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
                             Invoices
                         </a>
-                        <a class="nav-link" href="index.html">
+                        @*<a class="nav-link" href="/Invoice/DynamicInvoice">
                             <div class="sb-nav-link-icon"><i class="fas fa-credit-card"></i></div>
-                            Payments
+                            Dynamic Invoices
+                        </a>*@
+                        <a class="nav-link" href="/Employee/EmployeeList">
+                            <div class="sb-nav-link-icon"><i class="fas fa-people-carry"></i></div>
+                            Personnel Table
                         </a>
                         <a class="nav-link" href="/Shipment/Index/">
                             <div class="sb-nav-link-icon"><i class="fas fa-bus-alt"></i></div>
@@ -119,10 +123,13 @@
                             <div class="sb-nav-link-icon"><i class="fas  fa-list-alt"></i></div>
                             Product Details
                         </a>
-                        <a class="nav-link" href="/Statistic/BasicTable">
-                            <div class="sb-nav-link-icon"><i class="fas fa-asterisk"></i></div>
-                            Quick Look
-                        </a>
+                        @if (User.IsInRole("A"))
+                        {
+                            <a class="nav-link" href="/Statistic/BasicTable">
+                                <div class="sb-nav-link-icon"><i class="fas fa-asterisk"></i></div>
+                                Quick Look
+                            </a>
+                        }
 
                     </div>
                 </div>
