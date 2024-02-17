@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace MVCOnlineCommercialAutomation.Controllers
 {
+    [AllowAnonymous]//global axasdaki veriler dışında bu sayfayı hariç tut
     public class LoginController : Controller
     {
         // GET: Login

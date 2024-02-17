@@ -7,6 +7,7 @@ using MVCOnlineCommercialAutomation.Models.Classes;
 
 namespace MVCOnlineCommercialAutomation.Controllers
 {
+    [Authorize]
     public class DepartmentController : Controller
     {
         // GET: Department
@@ -36,13 +37,11 @@ namespace MVCOnlineCommercialAutomation.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
-
         public ActionResult GetDepartment(int id)
         {
             var department = context.Departments.Find(id);
             return View("GetDepartment", department);
         }
-
         public ActionResult UpdateDepartment(Department department)
         {
             var dep = context.Departments.Find(department.DepartmentId);
@@ -50,7 +49,6 @@ namespace MVCOnlineCommercialAutomation.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
-
         public ActionResult DetailDepartment(int id)
         {
             var department = context.Employees
@@ -62,7 +60,6 @@ namespace MVCOnlineCommercialAutomation.Controllers
             return View(department);
 
         }
-
         public ActionResult DepartmentEmployeeSale(int id)
         {
             var values = context.SaleTransactions.Where(x=>x.EmployeeId==id).ToList();

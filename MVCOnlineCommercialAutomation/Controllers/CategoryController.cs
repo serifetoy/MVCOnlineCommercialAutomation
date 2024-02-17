@@ -15,7 +15,7 @@ namespace MVCOnlineCommercialAutomation.Controllers
         Context context = new Context();
         public ActionResult Index(int page = 1)//start page one 
         {
-            var categories = context.Categories.ToList().ToPagedList(page,5);  
+            var categories = context.Categories.ToList().ToPagedList(page, 5);
             return View(categories);
         }
         [HttpGet]
@@ -42,7 +42,7 @@ namespace MVCOnlineCommercialAutomation.Controllers
         public ActionResult GetCategory(int id)
         {
             var category = context.Categories.Find(id);
-            return View("GetCategory",category);
+            return View("GetCategory", category);
         }
 
         public ActionResult UpdateCategory(Category category)
@@ -51,6 +51,28 @@ namespace MVCOnlineCommercialAutomation.Controllers
             cat.CategoryName = category.CategoryName;
             context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CascadingTest()
+        {
+            CascadingClass cs = new CascadingClass();
+            cs.Categories = new SelectList(context.Categories, "CategoryId", "CategoryName");
+            cs.Products = new SelectList(context.Products, "ProductId", "ProductName");
+            return View(cs);
+        }
+        public JsonResult GetProduct(int p)
+        {
+            var productList = (from x in context.Products
+                               join y in context.Categories
+                               on x.Category.CategoryId equals y.CategoryId
+                               where x.Category.CategoryId == p
+                               select new
+                               {
+                                   Text = x.ProductName,
+                                   Value = x.ProductId.ToString(),
+                               }).ToList();
+
+            return Json(productList, JsonRequestBehavior.AllowGet);
         }
     }
 }

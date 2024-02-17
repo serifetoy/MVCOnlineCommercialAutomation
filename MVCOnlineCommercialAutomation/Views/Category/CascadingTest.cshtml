@@ -1,0 +1,44 @@
+﻿@model MVCOnlineCommercialAutomation.Models.Classes.CascadingClass
+@{
+    ViewBag.Title = "CascadingTest";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(function () {
+        $('#DrpCategory').change(function () {
+            var id = $('#DrpCategory').val();
+            $.ajax({
+                url: '/Category/GetProduct',
+                data: { p: id },// get product metodunun parametresi = P
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#DrpProduct').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#DrpProduct').append("<option value='" + data[i].Value + "'>" +
+                            data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<div>
+    <h2>Categories - Products</h2>
+</div>
+<br />
+<div>
+    @Html.Label("Categories")
+    @Html.DropDownList("DrpCategory", Model.Categories, "--- Please select a category ---", new
+{ @class = "form-control" })
+    <br />
+    @Html.Label("Products")
+    @Html.DropDownList("DrpProduct", Model.Products, "--- Please select a product ---", new
+{ @class = "form-control" })
+
+</div>
+

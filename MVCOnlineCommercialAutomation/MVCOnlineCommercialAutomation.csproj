@@ -156,6 +156,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
+    <Compile Include="Models\Classes\CascadingClass.cs" />
     <Compile Include="Models\Classes\Category.cs" />
     <Compile Include="Models\Classes\ClassGroup.cs" />
     <Compile Include="Models\Classes\ClassGroup2.cs" />
@@ -2945,6 +2946,7 @@
     <Content Include="Views\CustomerPanel\SettingsPartial.cshtml" />
     <Content Include="Views\CustomerPanel\TimelinePartial.cshtml" />
     <Content Include="Views\Error\PageError.cshtml" />
+    <Content Include="Views\Category\CascadingTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar-bootstrap\main.d.ts" />
